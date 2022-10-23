@@ -2,31 +2,25 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 // To get the root element from the HTML document
-import asabenehImage from './images/asabeneh.jpg'
+import asabenehImage from './images/asabeneh.jpg';
+import reactLogo from './images/react_logo.png';
 
-// to import the doSomeMath from the math.js with or without extension
-import doSomeMath from './math.js'
+// add my date
+var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+var date = new Date();
 
-// to import the other modules
-// since these modules were not exported as default we have to desctructure
-import { addTwo, multiply, subtract } from './math.js'
-
-import * as everything from './math.js'
-console.log(addTwo(5, 5))
-console.log(doSomeMath.addTwo(5, 5))
-console.log(everything)
-// JSX element, header
-
+// For custom format use
+const _date = date.toLocaleDateString("en-US", { day: 'numeric' })+ "-" + date.toLocaleDateString("en-US", { month: 'short' })+ "-" + date.toLocaleDateString("en-US", { year: 'numeric' })
 
 // JSX element, header
 const welcome = 'Welcome to 30 Days Of React'
-const title = 'Getting Started React'
-const subtitle = 'JavaScript Library'
-const author = {
-  firstName: 'Asabeneh',
-  lastName: 'Yetayeh',
+const title = 'Getting started with React'
+const subtitle = 'React is a JavaScript Library'
+const student = {
+  firstName: 'Hamza',
+  lastName: 'Mateen',  
 }
-const date = 'Oct 2, 2020'
+
 
 // JSX element, header
 const header = (
@@ -36,9 +30,9 @@ const header = (
       <h2>{title}</h2>
       <h3>{subtitle}</h3>
       <p>
-        Instructor: {author.firstName} {author.lastName}
+        Student: {student.firstName} {student.lastName}
       </p>
-      <small>Date: {date}</small>
+      <small>Date: {_date}</small>
     </div>
   </header>
 )
@@ -52,23 +46,23 @@ const result = (
   </p>
 )
 
-const yearBorn = 1820
+const yearBorn = 2003
 const currentYear = new Date().getFullYear()
 const age = currentYear - yearBorn
 const personAge = (
   <p>
     {' '}
-    {author.firstName} {author.lastName} is {age} years old
+    {student.firstName} {student.lastName} is {age} years old
   </p>
 )
 
 // JSX element, main
 const techs = ['HTML', 'CSS', 'JavaScript']
-const techsFormatted = techs.map((tech) => <li>{tech}</li>)
+const techsFormatted = techs.map((tech) => <li key={tech}>{tech}</li>)
 
 const user = (
   <div>
-    <img src={asabenehImage} alt='asabeneh image' />
+    <img src={reactLogo} alt='React Logo ' width={"20%"}/>
   </div>
 )
 
@@ -77,13 +71,16 @@ const main = (
   <main>
     <div className='main-wrapper'>
       <p>
-        Prerequisite to get started{' '}
+        Prerequisites to get started with {' '}
         <strong>
-          <em>react.js</em>
+          <em>React</em>
         </strong>
         :
       </p>
-      <ul>{techsFormatted}</ul>
+      <ul>
+        {techsFormatted}
+      </ul>
+      
       {result}
       {personAge}
       {user}
@@ -91,13 +88,13 @@ const main = (
   </main>
 )
 
-const copyRight = 'Copyright 2020'
+const copyRight = <p>Copyright &copy; {date.getFullYear()}</p>
 
 // JSX element, footer
 const footer = (
-  <footer>
+  <footer style={{outline: "2px solid black "}}>
     <div className='footer-wrapper'>
-      <p>{copyRight}</p>
+      {copyRight}
     </div>
   </footer>
 )
