@@ -19,16 +19,43 @@ const logos = (
     <img className='logo' alt="" src={jsLogo} width="15%" />
   </div>
 )
+
 const Exercise2 = (
   <main className='exercise-2'>
     {title}
     {logos}
   </main>
 )
+
+// exercise_3 solutions 
+const subscribe = <h2 className='sub-text'>SUBSCRIBE</h2>;
+const text = <p>
+  Sign up with your email address to receive news and updates.
+</p>
+
+const subscribeButton = <input type='button' value={`Subscribe`}  className='input sub-btn' />
+const inputs = (
+  <form>
+    <input placeholder='First name' className='input' type='text'/>
+    <input placeholder='Last name' className='input' type='text'/>
+    <input placeholder='Email' className='input' type='email'/>
+
+    <div>{subscribeButton}</div>
+  </form>
+)
+
+const Exercise3 = (
+  <main className='exercise-3'>
+    {subscribe}
+    {text}
+    {inputs}
+  </main>
+)
 // Application root      
 const app = (
   <div className='app'>
     {Exercise2}
+    {Exercise3}
   </div>
 )
 
