@@ -2,6 +2,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
+import userImage from './images/asabeneh.jpg';
 // Exercise Level 2 Solutions 
 // importing logos
 import reactLogo from './images/react_logo.png';
@@ -51,11 +52,46 @@ const Exercise3 = (
     {inputs}
   </main>
 )
+
+// Developer Card 
+
+const userAvatar = <img className='user-image' src={userImage} width="20%" alt='asabeneh'></img>
+
+const userDetails = (
+  <div className='user-details'>
+    <h4 className='user-name'>ASABENEH YETAYEH &#x2713;</h4>
+    <h5 className='user-intro'>Senior Developer, Finland.</h5>
+  </div>
+)
+
+const skills = ['HTML', 'CSS', 'Sass', 'JS', 'React', 'Redux', 'Node', 'MongoDB', 'Python', 'Flask', 'Django', 'Numpy', 'Pandas', 'Data Analysis', 'MySQL', 'GraphQL', 'D3.js', 'Gatsby', 'Docker', 'Heroku', 'Git'];
+
+const userSkills = (
+  <main className='user-skills'>
+    <h4>SKILLS</h4>
+    
+    <section>
+      {skills.map(skill => <p className='skill'>{skill}</p>)}
+    </section>
+  </main>
+)
+
+const dateJoined = <h5 className='join-date'><span role='img' aria-label="A clock">🕤</span> Joined on Aug 30, 2020</h5>
+
+const userCard = (
+  <main className='user-card'>
+    {userAvatar}
+    {userDetails}
+    {userSkills}
+    {dateJoined}
+  </main>
+)
 // Application root      
 const app = (
   <div className='app'>
     {Exercise2}
     {Exercise3}
+    {userCard}
   </div>
 )
 
