@@ -1,3 +1,9 @@
+# Day-04 Exercises Output
+
+![Output](images/Output.png)
+
+### Carry on reading now!
+
 <div align="center">
   <h1> 30 Days Of React: Components </h1>
   <a class="header-badge" target="_blank" href="https://www.linkedin.com/in/asabeneh/">
