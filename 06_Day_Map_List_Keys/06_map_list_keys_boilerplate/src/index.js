@@ -1,6 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
+import { tenHighestPopulation } from './data/ten_most_highest_populations';
+
+// I have to ensure PROPTYPES as well - task to be done as soon as possible
 // Helper functions 
 function isEven(n) {
   return n % 2 === 0;
@@ -43,7 +46,7 @@ const NumberBoxes = ( { boxCount }) => {
   const numberArr = new Array(boxCount).fill(0);
   
   return (
-    <main className='component'>
+    <main className='container'>
       <h3 className='component-title'>Number Generator</h3>;
 
       <div className='boxes'>
@@ -84,6 +87,44 @@ const ColorBoxes = ( { boxCount }) => {
   )
 } 
 
+// Exercise 3: Visualizing World Population
+const PopulationBar = ( {country, population} ) => {
+  const worldPopulation = tenHighestPopulation[0].population;
+  const populationPercentage = population / worldPopulation * 100;
+
+  const barStyles = {
+    width: `${populationPercentage}%`,
+  }
+  return (
+    <main className='bar-row'>
+      <h4 className='left'>{country.toUpperCase()}</h4>
+      
+      <div className='bar-outer-container'>
+        <div className='bar-inner-container' style={barStyles}>
+          {``}
+        </div>
+      </div>
+
+      <h4 className='right'>{population}</h4>
+    </main>
+  )
+
+}
+const WorldPopulation = () => {
+  return (
+    <main className='container'>
+      <h3 className='component-title'>World Population</h3>;
+
+      <div className='boxes'>
+        {
+          tenHighestPopulation.map((list, index) => 
+            <PopulationBar country={list.country} population={list.population} key={index} />
+          )
+        }
+      </div>
+    </main>
+  )
+}
 // The App, or the parent or the container component
 // Functional Component
 const App = () => {
@@ -92,6 +133,7 @@ const App = () => {
       <h1 className='title'>30 Days of React</h1>
         <NumberBoxes boxCount={32} />
         <ColorBoxes boxCount={32} />
+        <WorldPopulation />
     </div>
   )
 }

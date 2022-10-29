@@ -44,6 +44,9 @@
         
       }
 
+      .container {
+        margin: 1.5rem 0;
+      }
       .title,
       .component-title {
         text-align: center;
@@ -57,14 +60,47 @@
         margin: 1px;
         display: inline-block;
         color: white;
-        padding-top: 2.8rem;
+        padding-top: 2rem;
       }
 
       .boxes {
         text-align: center;
-        height: 500px;
+        height: 70vh;
       }
 
+      /* exercise 3 */
+      
+      .bar-row {
+        margin: 0.4rem auto;
+        max-width: 98%;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      .bar-outer-container {
+        flex: 5;  
+      }
+
+      .bar-inner-container{
+        background-color: #ffa500;
+        padding: 1.2rem 0rem;
+        border-radius: 0.2rem;
+      }
+
+      .left, 
+      .right {
+        font-size: 0.9rem;
+        font-weight: 500;
+        flex: 1;
+        text-align: left  ;
+      }
+
+      .right {
+        flex: 0.7; 
+        text-align: right;
+      }
     </style>
     
   </head>

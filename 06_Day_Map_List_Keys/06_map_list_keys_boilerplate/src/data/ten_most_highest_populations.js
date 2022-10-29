@@ -2,7 +2,7 @@ export const tenHighestPopulation = [
   { country: 'World', population: 7693165599 },
   { country: 'China', population: 1377422166 },
   { country: 'India', population: 1295210000 },
-  { country: 'United States of America', population: 323947000 },
+  { country: 'USA', population: 323947000 },
   { country: 'Indonesia', population: 258705000 },
   { country: 'Brazil', population: 206135893 },
   { country: 'Pakistan', population: 194125062 },
