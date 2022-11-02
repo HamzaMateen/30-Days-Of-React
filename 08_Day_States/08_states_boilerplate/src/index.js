@@ -172,6 +172,72 @@ class Footer extends React.Component {
   }
 }
 
+
+// Exercise 3 Simple Solution 
+class Loading extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  loadingStyles = {
+    padding: '1rem',
+    borderRadius: '0.5rem',
+    color: '#fff',
+    backgroundColor: 'cyan',
+  }
+
+  render () {
+    
+    return (
+      <main className="loading-screen" style={this.loadingStyles}>
+        <h4 className="msg">Thank you for your response!, we are getting data for you now...</h4>
+      </main>
+    )
+  }
+}
+
+class UserData extends React.Component {
+  state = {
+    loading : false,
+  }
+
+  handleClick = () => {
+    this.setState({
+      loading: !this.state.loading,
+    })
+    console.log('stateNow: ', this.state.loading);
+
+    setTimeout(() => {
+      this.setState({
+        loading: !this.state.loading,
+      })
+    }, 3000)
+  }
+  render () {
+    return (
+      <main className="user-data">
+        {!this.state.loading && (
+          <div>
+            <p>Do you like Sci-Fi movies ? </p>
+
+            <button style={{width: '4rem', backgroundColor: 'cyan', padding: '0.5rem', margin: '0.5rem', borderRadius:'1rem'}} onClick={this.handleClick}>
+              {'Yes!'}
+            </button>
+          </div>
+        )} 
+        {
+          this.state.loading && (
+            <div>
+              <Loading />
+            </div>
+          )
+          
+        }
+      </main>
+    )
+  } 
+}
+
 class App extends React.Component {
   state = {
     count: 0,
@@ -234,7 +300,7 @@ class App extends React.Component {
 
     return (
       <div className='app'>
-        {this.state.backgroundColor}
+        {/* {this.state.backgroundColor}
         <Header data={data} />
         <Main
           user={user}
@@ -245,8 +311,9 @@ class App extends React.Component {
           addOne={this.addOne}
           minusOne={this.minusOne}
           count={this.state.count}
-        />
-        <Footer date={new Date()} />
+        /> */}
+
+        <UserData />
       </div>
     )
   }
